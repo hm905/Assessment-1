@@ -1,3 +1,4 @@
+1. Print a list of all doctors based at a particular hospital.
 mysql> SELECT id, name FROM people WHERE role = 'Doctor' AND hospital_id                                                                                      =1;
 +----+---------------------+
 | id | name                |
@@ -8,7 +9,7 @@ mysql> SELECT id, name FROM people WHERE role = 'Doctor' AND hospital_id        
 +----+---------------------+
 3 rows in set (0.00 sec)
 
-
+2. Print a list of all prescriptions for a particular patient, ordered by the prescription date.
 mysql> SELECT * FROM prescriptions WHERE patient_id = 345 ORDER BY prescription_date;
 +-----------------+------------+-----------+------------+-------------------+
 | prescription_id | patient_id | doctor_id | medication | prescription_date |
@@ -17,7 +18,7 @@ mysql> SELECT * FROM prescriptions WHERE patient_id = 345 ORDER BY prescription_
 +-----------------+------------+-----------+------------+-------------------+
 1 row in set (0.00 sec)
 
-
+3. Print a list of all prescriptions that a particular doctor has prescribed
 mysql> SELECT * FROM prescriptions WHERE doctor_id = 2;
 +-----------------+------------+-----------+-------------+-------------------+
 | prescription_id | patient_id | doctor_id | medication  | prescription_date |
@@ -28,9 +29,11 @@ mysql> SELECT * FROM prescriptions WHERE doctor_id = 2;
 +-----------------+------------+-----------+-------------+-------------------+
 3 rows in set (0.01 sec)
 
+4. Add a new patient to the database, including being registered with one of the doctors.
 mysql> INSERT INTO people (id, name, date_of_birth, address, role, doctor_id) VALUES (805, 'Ian Bon', '1994-01-14', '617 The Duet', 'Patient', 2              );
 Query OK, 1 row affected (0.18 sec)
 
+5. Identify which doctor has made the most prescriptions.
 mysql> SELECT * FROM people WHERE doctor_id = 2;
 +-----+------------------+---------------+-------------------------------------------------------+---------+-------------+-----------+
 | id  | name             | date_of_birth | address                                               | role    | hospital_id | doctor_id |
@@ -43,6 +46,7 @@ mysql> SELECT * FROM people WHERE doctor_id = 2;
 +-----+------------------+---------------+-------------------------------------------------------+---------+-------------+-----------+
 5 rows in set (0.00 sec)
 
+6. Print a list of all doctors at the hospital with biggest size (number of beds).
 mysql> SELECT prescriptions.doctor_id, people.name, COUNT(*) AS total_prescriptions
     -> FROM prescriptions
     -> INNER JOIN people
