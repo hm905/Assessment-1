@@ -84,7 +84,7 @@ if role=patient- reference id to link patient to doctor
 
 **2. hospital_queries.sql**
 
-**contain all 6 SQL queries requested on assessment brief**
+**Contain all 6 SQL queries requested on assessment brief**
 - Print a list of all doctors based at a particular hospital
 - Print a list of all prescriptions for a particular patient, ordered by the prescription date
 - Print a list of all prescriptions that a particular doctor has prescribed
@@ -93,6 +93,7 @@ if role=patient- reference id to link patient to doctor
 - Print a list of all doctors at the hospital with biggest size (number of beds)
 
 **3. ERD.pdf**
+
 This illustrates the three main tables and their one to many relationships using primary key and foreign keys.
 
 This reflect the relationships explained above in **Relationship between 3 tables**
